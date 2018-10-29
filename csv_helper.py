@@ -1,10 +1,13 @@
 from typing import List, Dict, Tuple
+import csv
 
 
-def csv_to_vector(filereader) -> Tuple[List[str], List[str], List[List[int]]]:
+def csv_to_vector(file_path: str) -> Tuple[List[str], List[str], List[List[int]]]:
     '''
     convert csv-file to typle without first column: (item_names, props, data)
     '''
+    csvfile = open(file_path, newline='')
+    filereader = csv.reader(csvfile, delimiter=',', quotechar='\"')
     item_names: List[str] = []
     props: List[str] = []
     pre_data: List[List[str]] = []
@@ -34,8 +37,7 @@ def csv_to_vector(filereader) -> Tuple[List[str], List[str], List[List[int]]]:
     #
     data_dict: List[Dict[str, int]] = []
     i = 0
-    for i in range(len(pre_data[0])):
-        data_dict.append({})
+    [data_dict.append({}) for i in range(len(pre_data[0]))]
 
     i = 0
     for i in range(len(pre_data[0])):

@@ -11,14 +11,8 @@ Run train with 3500 items
 make kaggle_1 l=3500
 ```
 
-Run writing clustering data to file
-
-```bash
-make kaggle_2
-```
-
 Run check preduction for 1000 items
 
 ```bash
-make kaggle_3 l=1000 o=35000
+make kaggle_2 l=1000 o=35000
 ```
